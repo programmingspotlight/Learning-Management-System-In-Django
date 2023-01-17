@@ -5,12 +5,14 @@ from .models import Profile
 
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
+    """ It runs every time a new user is created. """
     if created:
         Profile.objects.create(user=instance)
 
 
 @receiver(post_save, sender=User)
 def save_profile(sender, instance, **kwargs):
+    """ It runs to save the user profile every time a new update is done. """
     instance.profile.save()
 
 

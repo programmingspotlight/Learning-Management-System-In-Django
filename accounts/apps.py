@@ -6,4 +6,5 @@ class AccountsConfig(AppConfig):
     name = 'accounts'
 
     def ready(self):
+        """ This method is used to register the signals """
         import accounts.signals
