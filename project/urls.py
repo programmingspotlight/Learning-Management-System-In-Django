@@ -8,10 +8,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
-    path('', include('accounts.urls')),
-    path('', include('contact.urls')),
-    path('', include('blog.urls')),
-    path('', include('courses.urls')),
+    path('accounts/', include('accounts.urls')),
+    path('contact/', include('contact.urls')),
+    path('blog/', include('blog.urls')),
+    path('courses/', include('courses.urls')),
 ]
 
 # STATIC AND MEDIA FILES URLs

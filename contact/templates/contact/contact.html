@@ -1,0 +1,18 @@
+<form action="{% url 'contact' %}" method="POST">
+
+    {% if messages %}
+    
+        {% for message in messages %}
+            <span {% if messages.tags %} class="message {{message.tags}}" {% endif %}>{{message}}</span>
+        {% endfor %}
+
+    {% endif %}
+
+    {% csrf_token %}
+    {{contact_form}}
+
+    <div class="btn-box">
+        <button type="submit" class="btn contact-btn">send message</button>
+    </div>
+
+</form>
