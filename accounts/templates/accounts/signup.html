@@ -1,0 +1,18 @@
+<form action="{% url 'signup' %}" method="POST">
+
+    {% if messages %}
+    
+        {% for message in messages %}
+            <span {% if messages.tags %} class="message {{message.tags}}" {% endif %}>{{message}}</span>
+        {% endfor %}
+
+    {% endif %}
+
+    {% csrf_token %}
+    {{signup_form}}
+
+    <div class="btn-box">
+        <button type="submit" class="btn signup-btn">signup</button>
+    </div>
+
+</form>
