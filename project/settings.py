@@ -123,6 +123,15 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
+# Authentication Settings
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"
+
+
+# Custom User Model
+AUTH_USER_MODEL = 'accounts.CustomUser'
+
+
 # Email Settings
 EMAIL_BACKEND = config('EMAIL_BACKEND')
 EMAIL_HOST = config('EMAIL_HOST')

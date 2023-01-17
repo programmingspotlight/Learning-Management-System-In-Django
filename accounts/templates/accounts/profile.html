@@ -1,0 +1,18 @@
+<form action="{% url 'profile' %}" method="POST" enctype="multipart/form-data">
+
+    {% if messages %}
+    
+        {% for message in messages %}
+            <span {% if messages.tags %} class="message {{message.tags}}" {% endif %}>{{message}}</span>
+        {% endfor %}
+
+    {% endif %}
+
+    {% csrf_token %}
+    {{profile_form}}
+
+    <div class="btn-box">
+        <button type="submit" class="btn profile-btn">save profile</button>
+    </div>
+
+</form>
