@@ -1,0 +1,5 @@
+{% for article in archive_articles %}
+
+    <a href="{{article.get_absolute_url}}">{{article.article_title}}</a><br>
+
+{% endfor %}

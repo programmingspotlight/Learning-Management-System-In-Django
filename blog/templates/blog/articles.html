@@ -1,0 +1,31 @@
+{% for article in articles %}
+
+    <a href="{{article.get_absolute_url}}">{{article.article_title}}</a> - <a href="{% url 'category_articles' article.article_category.category_slug %}">{{article.article_category.category_title}}</a> - {% for tag in article.article_tags.all %} <a href="{% url 'tag_articles' tag.tag_slug %}">{{tag.tag_title}}</a> {% endfor %}
+    <br>
+    <hr>
+
+{% endfor %}
+
+<div class="pg">
+
+    {% if articles.has_other_pages %}
+    <ul class="pg-nav">
+        {% if articles.has_previous %}
+        <li><a href="?page={{ articles.previous_page_number }}" class="pg-item">prev</a></li>
+        {% endif %}
+
+        {% for i in articles.paginator.page_range %}
+            {% if articles.number == i %}
+                <span>{{ i }}</span>
+            {% else %}
+                <a href="?page={{i}}">{{i}}</a>
+            {% endif %}
+        {% endfor %}
+
+        {% if articles.has_next %}
+        <li><a href="?page={{ articles.next_page_number }}" class="pg-item">next</a></li>
+        {% endif %}
+    </ul>
+    {% endif %}
+
+</div>

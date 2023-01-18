@@ -1,0 +1,15 @@
+{{article.article_title}}
+
+
+
+<form action="{% url 'articles_search' %}" method="GET">
+
+    <div class="input-box">
+        <input type="search" name="q" id="q" class="input-field">
+    </div>
+
+    <div class="btn-box">
+        <button type="submit" class="btn search-btn">search</button>
+    </div>
+
+</form>
